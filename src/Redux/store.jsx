@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
+import storage from 'redux-persist/lib/storage';
 import {
   persistStore,
   persistReducer,
@@ -9,8 +11,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import logger from 'redux-logger';
+
 import contactsSlice from './contactsSlice';
 
 const middleware = getDefaultMiddleware =>
@@ -35,6 +36,6 @@ const store = configureStore({
 });
 
 const persistor = persistStore(store);
-// eslint-disable-next-line
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default { store, persistor };

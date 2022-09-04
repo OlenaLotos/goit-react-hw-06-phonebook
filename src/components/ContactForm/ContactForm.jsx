@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { add, getContacts } from '../../Redux/contactsSlice';
 import { nanoid } from 'nanoid';
+import { add, getContacts } from '../../Redux/contactsSlice';
 import { Form, Label, Input, Button } from './ContactForm.styled';
 
 export default function ContactForm() {
@@ -24,11 +24,6 @@ export default function ContactForm() {
     reset();
   };
 
-  const reset = () => {
-    setName('');
-    setNumber('');
-  };
-
   const handleChange = event => {
     const { name, value } = event.currentTarget;
     switch (name) {
@@ -43,6 +38,11 @@ export default function ContactForm() {
       default:
         break;
     }
+  };
+
+  const reset = () => {
+    setName('');
+    setNumber('');
   };
 
   return (
